@@ -52,7 +52,7 @@ export function SupportButton() {
           onClick={() => setOpen(false)}
         >
           <div
-            className="toy-card anim-pop max-h-[90vh] w-full max-w-md overflow-y-auto p-5 text-center"
+            className="toy-card anim-pop w-full max-w-md p-5 text-center"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="text-5xl anim-pulse-heart">❤️</div>
