@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { playSound } from "@/lib/sound";
 
 const PIX_CODE =
@@ -42,7 +43,7 @@ export function SupportButton() {
         <span className="text-2xl anim-pulse-heart">❤️</span>
       </button>
 
-      {open && (
+      {open && typeof document !== "undefined" && createPortal(
         <div
           className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-3 backdrop-blur-sm sm:items-center"
           role="dialog"
@@ -94,7 +95,8 @@ export function SupportButton() {
               Fechar
             </button>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );
