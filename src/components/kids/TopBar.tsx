@@ -7,14 +7,14 @@ export function TopBar({ back }: { back?: string }) {
   return (
     <header className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 pt-4 sm:px-6">
       {back ? (
-        <Link
-          to={back}
+        <a
+          href={back}
           className="toy-card toy-press flex items-center gap-2 px-4 py-3 text-lg font-bold hover:scale-105 active:scale-95"
           aria-label="Voltar"
         >
           <span className="text-2xl">⬅️</span>
           <span className="hidden sm:inline">Voltar</span>
-        </Link>
+        </a>
       ) : (
         <Link to="/" className="flex items-center gap-2">
           <span className="text-4xl anim-wiggle">🎠</span>

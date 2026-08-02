@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AlbumRouteImport } from './routes/album'
+import { Route as JogoGameIdRouteImport } from './routes/jogo.$gameId'
 import { Route as MundoWorldIdRouteImport } from './routes/mundo.$worldId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,11 @@ const AlbumRoute = AlbumRouteImport.update({
   path: '/album',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JogoGameIdRoute = JogoGameIdRouteImport.update({
+  id: '/jogo/$gameId',
+  path: '/jogo/$gameId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MundoWorldIdRoute = MundoWorldIdRouteImport.update({
   id: '/mundo/$worldId',
   path: '/mundo/$worldId',
@@ -32,30 +38,34 @@ const MundoWorldIdRoute = MundoWorldIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/album': typeof AlbumRoute
+  '/jogo/$gameId': typeof JogoGameIdRoute
   '/mundo/$worldId': typeof MundoWorldIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/album': typeof AlbumRoute
+  '/jogo/$gameId': typeof JogoGameIdRoute
   '/mundo/$worldId': typeof MundoWorldIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/album': typeof AlbumRoute
+  '/jogo/$gameId': typeof JogoGameIdRoute
   '/mundo/$worldId': typeof MundoWorldIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/album' | '/mundo/$worldId'
+  fullPaths: '/' | '/album' | '/jogo/$gameId' | '/mundo/$worldId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/album' | '/mundo/$worldId'
-  id: '__root__' | '/' | '/album' | '/mundo/$worldId'
+  to: '/' | '/album' | '/jogo/$gameId' | '/mundo/$worldId'
+  id: '__root__' | '/' | '/album' | '/jogo/$gameId' | '/mundo/$worldId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AlbumRoute: typeof AlbumRoute
+  JogoGameIdRoute: typeof JogoGameIdRoute
   MundoWorldIdRoute: typeof MundoWorldIdRoute
 }
 
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlbumRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/jogo/$gameId': {
+      id: '/jogo/$gameId'
+      path: '/jogo/$gameId'
+      fullPath: '/jogo/$gameId'
+      preLoaderRoute: typeof JogoGameIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mundo/$worldId': {
       id: '/mundo/$worldId'
       path: '/mundo/$worldId'
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AlbumRoute: AlbumRoute,
+  JogoGameIdRoute: JogoGameIdRoute,
   MundoWorldIdRoute: MundoWorldIdRoute,
 }
 export const routeTree = rootRouteImport

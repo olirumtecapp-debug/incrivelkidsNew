@@ -60,7 +60,7 @@ function GamePage() {
   return (
     <div className="relative min-h-screen overflow-hidden pb-16">
       <LivingSky />
-      <TopBar back="/mundo/$worldId" />
+      <TopBar back={`/mundo/${world.id}`} />
 
       <main className="relative z-10 mx-auto w-full max-w-4xl px-4 pt-4 sm:px-6">
         <h1 className="font-display mb-3 text-center text-2xl font-extrabold sm:text-3xl">
@@ -75,7 +75,7 @@ function GamePage() {
         )}
         {game.kind === "memory" && (
           <MemoryGame
-            pool={MEMORY_POOLS[world.id] ?? MEMORY_POOLS.default!}
+            pool={MEMORY_POOLS[world.id] ?? MEMORY_POOLS["default"]!}
             sticker={sticker}
             onWin={onWin}
           />
