@@ -11,7 +11,7 @@ export function MascotBubble() {
     return () => window.clearInterval(timer);
   }, []);
 
-  const mascot = MASCOTS[index];
+  const mascot = MASCOTS[index] ?? MASCOTS[0]!;
 
   return (
     <div className="pointer-events-none fixed bottom-4 left-4 z-20 flex items-end gap-2">

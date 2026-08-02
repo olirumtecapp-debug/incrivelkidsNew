@@ -11,7 +11,7 @@ function build(emojis: string[], count: number, seedOffset: number): Item[] {
       delay: Math.round(rnd(2) * 18),
       duration: 16 + Math.round(rnd(3) * 22),
       scale: 0.7 + rnd(4) * 0.9,
-      emoji: emojis[i % emojis.length],
+      emoji: emojis[i % emojis.length] ?? "☁️",
     };
   });
 }
