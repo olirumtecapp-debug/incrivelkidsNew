@@ -71,7 +71,10 @@ export function OddOneGame({
           {data.items.map((item, index) => (
             <button
               key={index}
-              onClick={() => pick(index)}
+              onPointerDown={(e) => {
+                e.preventDefault();
+                pick(index);
+              }}
               className={`anim-pop rounded-3xl bg-white/60 p-2 text-4xl transition active:scale-90 sm:text-5xl ${
                 wrong === index ? "anim-shake opacity-60" : "hover:scale-110"
               }`}

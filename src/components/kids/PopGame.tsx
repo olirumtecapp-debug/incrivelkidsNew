@@ -51,7 +51,7 @@ export function PopGame({
     setBubbles((current) => current.map((b) => (b.id === id ? { ...b, popped: true } : b)));
     setScore((value) => {
       const next = value + 1;
-      if (next >= TARGET) {
+      if (next >= TARGET && !done) {
         setDone(true);
         playSound("win");
         onWin(10);
@@ -75,13 +75,14 @@ export function PopGame({
       {bubbles.map((bubble) => (
         <button
           key={bubble.id}
-          onClick={() => {
+          onPointerDown={(e) => {
+            e.preventDefault();
             if (music) playNote(bubble.id % 8);
             else playSound("pop");
             pop(bubble.id);
           }}
           aria-label="Estourar"
-          className={`absolute anim-pop select-none transition-transform duration-200 active:scale-125 ${
+          className={`absolute anim-pop select-none transition-transform duration-200 active:scale-125 touch-none ${
             bubble.popped ? "pointer-events-none scale-0 opacity-0" : "anim-float"
           }`}
           style={{ left: `${bubble.x}%`, top: `${bubble.y}%`, fontSize: bubble.size }}

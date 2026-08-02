@@ -77,7 +77,10 @@ export function ColorGame({
           {data.options.map((color, index) => (
             <button
               key={color.name}
-              onClick={() => pick(index)}
+              onPointerDown={(e) => {
+                e.preventDefault();
+                pick(index);
+              }}
               aria-label={color.name}
               className={`anim-pop size-20 rounded-full border-4 border-white/70 shadow-lg transition active:scale-90 sm:size-24 ${
                 wrong === index ? "anim-shake opacity-60" : "hover:scale-110"

@@ -17,7 +17,7 @@ export function WhackGame({
   const [active, setActive] = useState<number | null>(null);
   const [hits, setHits] = useState(0);
   const [won, setWon] = useState(false);
-  const wonRef = useRef(false);
+  
 
   useEffect(() => {
     if (won) return;
@@ -35,8 +35,7 @@ export function WhackGame({
       playSound("pop");
       setHits((value) => {
         const next = value + 1;
-        if (next >= GOAL && !wonRef.current) {
-          wonRef.current = true;
+        if (next >= GOAL && !won) {
           setWon(true);
           playSound("win");
           onWin(12);
@@ -48,7 +47,6 @@ export function WhackGame({
   );
 
   const replay = () => {
-    wonRef.current = false;
     setHits(0);
     setWon(false);
     setActive(null);
@@ -65,9 +63,12 @@ export function WhackGame({
           {Array.from({ length: HOLES }).map((_, index) => (
             <button
               key={index}
-              onClick={() => hit(index)}
+              onPointerDown={(e) => {
+                e.preventDefault();
+                hit(index);
+              }}
               aria-label="Buraco"
-              className="flex aspect-square items-center justify-center rounded-3xl bg-black/10 text-4xl transition active:scale-95 sm:text-5xl"
+              className="flex aspect-square items-center justify-center rounded-3xl bg-black/10 text-4xl transition active:scale-95 sm:text-5xl touch-none"
             >
               {active === index ? <span className="anim-pop">{emoji}</span> : null}
             </button>
