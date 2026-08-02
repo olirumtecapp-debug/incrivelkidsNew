@@ -15,9 +15,9 @@ export function InstallButton() {
           void install();
         }}
         aria-label="Instalar o aplicativo"
-        className="toy-card toy-press flex items-center gap-2 px-3 py-3 text-lg font-extrabold hover:scale-105 active:scale-95"
+        className="toy-card toy-press flex items-center px-3 py-2 text-base font-extrabold hover:scale-105 active:scale-95 sm:px-3 sm:py-3 sm:text-lg"
       >
-        <span className="text-2xl">📲</span>
+        <span className="text-xl sm:text-2xl">📲</span>
         <span className="hidden font-display lg:inline">Instalar</span>
       </button>
     );
@@ -27,9 +27,9 @@ export function InstallButton() {
     <Link
       to="/instalar"
       aria-label="Como instalar e jogar"
-      className="toy-card toy-press flex items-center gap-2 px-3 py-3 text-lg font-extrabold hover:scale-105 active:scale-95"
+      className="toy-card toy-press flex items-center px-3 py-2 text-base font-extrabold hover:scale-105 active:scale-95 sm:px-3 sm:py-3 sm:text-lg"
     >
-      <span className="text-2xl">📲</span>
+      <span className="text-xl sm:text-2xl">📲</span>
     </Link>
   );
 }
