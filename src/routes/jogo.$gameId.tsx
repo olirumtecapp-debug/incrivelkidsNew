@@ -73,7 +73,12 @@ function GamePage() {
         </h1>
 
         {game.kind === "pop" && (
-          <PopGame emoji={game.theme} sticker={sticker} onWin={onWin} />
+          <PopGame
+            emoji={game.theme}
+            sticker={sticker}
+            music={world.id === "teatro"}
+            onWin={onWin}
+          />
         )}
         {game.kind === "catch" && (
           <CatchGame emoji={game.theme} sticker={sticker} onWin={onWin} />
@@ -82,6 +87,7 @@ function GamePage() {
           <MemoryGame
             pool={MEMORY_POOLS[world.id] ?? MEMORY_POOLS["default"]!}
             sticker={sticker}
+            instruments={world.id === "teatro"}
             onWin={onWin}
           />
         )}
