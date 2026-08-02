@@ -1,4 +1,4 @@
-import { playSound } from "@/lib/sound";
+import { playNote, playSound } from "@/lib/sound";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ScoreBar, WinScreen } from "./GameShell";
 
@@ -9,10 +9,12 @@ const TARGET = 14;
 export function PopGame({
   emoji,
   sticker,
+  music = false,
   onWin,
 }: {
   emoji: string;
   sticker: string;
+  music?: boolean;
   onWin: (stars: number) => void;
 }) {
   const [bubbles, setBubbles] = useState<Bubble[]>([]);
@@ -73,7 +75,11 @@ export function PopGame({
       {bubbles.map((bubble) => (
         <button
           key={bubble.id}
-          onClick={() => { playSound("pop"); pop(bubble.id); }}
+          onClick={() => {
+            if (music) playNote(bubble.id % 8);
+            else playSound("pop");
+            pop(bubble.id);
+          }}
           aria-label="Estourar"
           className={`absolute anim-pop select-none transition-transform duration-200 active:scale-125 ${
             bubble.popped ? "pointer-events-none scale-0 opacity-0" : "anim-float"
