@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AlbumRouteImport } from './routes/album'
+import { Route as MissoesRouteImport } from './routes/missoes'
+import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as JogoGameIdRouteImport } from './routes/jogo.$gameId'
 import { Route as MundoWorldIdRouteImport } from './routes/mundo.$worldId'
 
@@ -22,6 +24,16 @@ const IndexRoute = IndexRouteImport.update({
 const AlbumRoute = AlbumRouteImport.update({
   id: '/album',
   path: '/album',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MissoesRoute = MissoesRouteImport.update({
+  id: '/missoes',
+  path: '/missoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerfilRoute = PerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JogoGameIdRoute = JogoGameIdRouteImport.update({
@@ -38,12 +50,16 @@ const MundoWorldIdRoute = MundoWorldIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/album': typeof AlbumRoute
+  '/missoes': typeof MissoesRoute
+  '/perfil': typeof PerfilRoute
   '/jogo/$gameId': typeof JogoGameIdRoute
   '/mundo/$worldId': typeof MundoWorldIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/album': typeof AlbumRoute
+  '/missoes': typeof MissoesRoute
+  '/perfil': typeof PerfilRoute
   '/jogo/$gameId': typeof JogoGameIdRoute
   '/mundo/$worldId': typeof MundoWorldIdRoute
 }
@@ -51,20 +67,43 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/album': typeof AlbumRoute
+  '/missoes': typeof MissoesRoute
+  '/perfil': typeof PerfilRoute
   '/jogo/$gameId': typeof JogoGameIdRoute
   '/mundo/$worldId': typeof MundoWorldIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/album' | '/jogo/$gameId' | '/mundo/$worldId'
+  fullPaths:
+    | '/'
+    | '/album'
+    | '/missoes'
+    | '/perfil'
+    | '/jogo/$gameId'
+    | '/mundo/$worldId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/album' | '/jogo/$gameId' | '/mundo/$worldId'
-  id: '__root__' | '/' | '/album' | '/jogo/$gameId' | '/mundo/$worldId'
+  to:
+    | '/'
+    | '/album'
+    | '/missoes'
+    | '/perfil'
+    | '/jogo/$gameId'
+    | '/mundo/$worldId'
+  id:
+    | '__root__'
+    | '/'
+    | '/album'
+    | '/missoes'
+    | '/perfil'
+    | '/jogo/$gameId'
+    | '/mundo/$worldId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AlbumRoute: typeof AlbumRoute
+  MissoesRoute: typeof MissoesRoute
+  PerfilRoute: typeof PerfilRoute
   JogoGameIdRoute: typeof JogoGameIdRoute
   MundoWorldIdRoute: typeof MundoWorldIdRoute
 }
@@ -83,6 +122,20 @@ declare module '@tanstack/react-router' {
       path: '/album'
       fullPath: '/album'
       preLoaderRoute: typeof AlbumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/missoes': {
+      id: '/missoes'
+      path: '/missoes'
+      fullPath: '/missoes'
+      preLoaderRoute: typeof MissoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/perfil': {
+      id: '/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/jogo/$gameId': {
@@ -105,6 +158,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AlbumRoute: AlbumRoute,
+  MissoesRoute: MissoesRoute,
+  PerfilRoute: PerfilRoute,
   JogoGameIdRoute: JogoGameIdRoute,
   MundoWorldIdRoute: MundoWorldIdRoute,
 }
