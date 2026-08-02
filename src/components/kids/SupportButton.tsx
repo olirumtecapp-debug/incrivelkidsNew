@@ -38,7 +38,7 @@ export function SupportButton() {
           setOpen(true);
         }}
         aria-label="Apoiar o projeto"
-        className="toy-card toy-press flex items-center px-3 py-3 text-lg font-extrabold hover:scale-105 active:scale-95"
+        className="toy-card toy-press flex items-center px-3 py-2 text-base font-extrabold hover:scale-105 active:scale-95 sm:px-3 sm:py-3 sm:text-lg"
       >
         <span className="text-2xl anim-pulse-heart">❤️</span>
       </button>
