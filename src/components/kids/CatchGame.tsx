@@ -37,7 +37,7 @@ export function CatchGame({
     setItems((current) => current.filter((item) => item.id !== id));
     setScore((value) => {
       const next = value + 1;
-      if (next >= TARGET) {
+      if (next >= TARGET && !done) {
         setDone(true);
         playSound("win");
         onWin(10);

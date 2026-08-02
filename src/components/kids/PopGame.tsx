@@ -51,7 +51,7 @@ export function PopGame({
     setBubbles((current) => current.map((b) => (b.id === id ? { ...b, popped: true } : b)));
     setScore((value) => {
       const next = value + 1;
-      if (next >= TARGET) {
+      if (next >= TARGET && !done) {
         setDone(true);
         playSound("win");
         onWin(10);
