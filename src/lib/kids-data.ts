@@ -1,4 +1,4 @@
-export type GameKind = "pop" | "memory" | "catch" | "paint" | "puzzle";
+export type GameKind = "pop" | "memory" | "catch" | "paint" | "puzzle" | "race" | "bowling";
 
 export type MiniGame = {
   id: string;
@@ -40,6 +40,7 @@ export const WORLDS: World[] = [
       g("baloes", "Estoure os Balões", "🎈", "pop", "🎈🎈"),
       g("unicornio", "Memória do Unicórnio", "🦄", "memory", "🦄"),
       g("estrelas", "Chuva de Estrelas", "⭐", "catch", "⭐"),
+      g("quebra-castelo", "Quebra-Cabeça Real", "🧩", "puzzle", "👑"),
     ],
   },
   {
@@ -54,6 +55,7 @@ export const WORLDS: World[] = [
       g("bolhas", "Estoure as Bolhas", "🫧", "pop", "🫧"),
       g("palhaco", "Memória do Circo", "🤡", "memory", "🎪"),
       g("pipoca", "Pegue a Pipoca", "🍿", "catch", "🍿"),
+      g("boliche-circo", "Boliche do Circo", "🎳", "bowling", "🎳"),
     ],
   },
   {
@@ -68,6 +70,8 @@ export const WORLDS: World[] = [
       g("joaninhas", "Capture Joaninhas", "🐞", "pop", "🐞"),
       g("carrossel", "Memória do Carrossel", "🎠", "memory", "🎠"),
       g("sorvete", "Pegue os Sorvetes", "🍦", "catch", "🍦"),
+      g("corrida-carrinho", "Corrida de Carrinho", "🏎", "race", "🏎"),
+      g("boliche-parque", "Boliche Maluco", "🎳", "bowling", "🎳"),
     ],
   },
   {
@@ -82,6 +86,8 @@ export const WORLDS: World[] = [
       g("estrelinhas", "Toque nas Estrelinhas", "✨", "pop", "✨"),
       g("planetas", "Memória dos Planetas", "🪐", "memory", "🪐"),
       g("meteoros", "Colete Cometas", "☄️", "catch", "☄️"),
+      g("corrida-foguete", "Corrida Espacial", "🚀", "race", "🚀"),
+      g("quebra-espaco", "Quebra-Cabeça Espacial", "🧩", "puzzle", "🪐"),
     ],
   },
   {
@@ -96,6 +102,7 @@ export const WORLDS: World[] = [
       g("peixinhos", "Pesque os Peixinhos", "🐠", "pop", "🐠"),
       g("conchas", "Memória do Mar", "🐚", "memory", "🐚"),
       g("bolhinhas", "Pegue as Bolhinhas", "🫧", "catch", "🫧"),
+      g("quebra-mar", "Quebra-Cabeça do Mar", "🧩", "puzzle", "🐠"),
     ],
   },
   {
@@ -110,6 +117,7 @@ export const WORLDS: World[] = [
       g("caca-doces", "Caça aos Doces", "🍬", "pop", "🍬"),
       g("cupcakes", "Memória dos Cupcakes", "🧁", "memory", "🧁"),
       g("frutas", "Pegue as Frutas", "🍓", "catch", "🍓"),
+      g("corrida-doce", "Corrida dos Doces", "🍭", "race", "🍭"),
     ],
   },
   {
@@ -124,6 +132,7 @@ export const WORLDS: World[] = [
       g("ovos", "Ache os Ovinhos", "🥚", "pop", "🥚"),
       g("dinos-mem", "Memória dos Dinos", "🦕", "memory", "🦕"),
       g("folhas", "Pegue as Folhinhas", "🍃", "catch", "🍃"),
+      g("corrida-dino", "Corrida do Dino", "🦖", "race", "🦖"),
     ],
   },
   {
@@ -138,6 +147,7 @@ export const WORLDS: World[] = [
       g("caranguejos", "Cutuque os Caranguejos", "🦀", "pop", "🦀"),
       g("praia-mem", "Memória da Praia", "🏝", "memory", "🏝"),
       g("cocos", "Pegue os Cocos", "🥥", "catch", "🥥"),
+      g("boliche-praia", "Boliche na Areia", "🎳", "bowling", "🎳"),
     ],
   },
   {
@@ -175,6 +185,7 @@ export const WORLDS: World[] = [
       g("borboletas", "Capture Borboletas", "🦋", "pop", "🦋"),
       g("cogumelos", "Memória do Bosque", "🍄", "memory", "🍄"),
       g("bolotas", "Pegue as Bolotas", "🌰", "catch", "🌰"),
+      g("quebra-bosque", "Quebra-Cabeça do Bosque", "🧩", "puzzle", "🍄"),
     ],
   },
   {
