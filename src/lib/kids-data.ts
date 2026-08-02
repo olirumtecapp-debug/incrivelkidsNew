@@ -1,4 +1,4 @@
-export type GameKind = "pop" | "memory" | "catch" | "paint" | "puzzle" | "race" | "bowling" | "sequence" | "count";
+export type GameKind = "pop" | "memory" | "catch" | "paint" | "puzzle" | "race" | "bowling" | "sequence" | "count" | "whack" | "odd" | "order";
 
 export type MiniGame = {
   id: string;
@@ -43,6 +43,9 @@ export const WORLDS: World[] = [
       g("quebra-castelo", "Quebra-Cabeça Real", "🧩", "puzzle", "👑"),
       g("melodia-castelo", "Siga a Melodia Real", "🎼", "sequence", "🎼"),
       g("conte-coroas", "Conte as Coroas", "👑", "count", "👑"),
+      g("toca-castelo", "Toca-Toca do Dragão", "🐉", "whack", "🐉"),
+      g("diferente-castelo", "Ache a Coroa Diferente", "👑", "odd", "👑"),
+      g("ordem-castelo", "Torres em Ordem", "🏰", "order", "🏰"),
     ],
   },
   {
@@ -60,6 +63,9 @@ export const WORLDS: World[] = [
       g("boliche-circo", "Boliche do Circo", "🎳", "bowling", "🎳"),
       g("quebra-circo", "Quebra-Cabeça do Circo", "🧩", "puzzle", "🎪"),
       g("conte-baloes", "Conte os Balões", "🎈", "count", "🎈"),
+      g("toca-circo", "Toca-Toca do Palhaço", "🤡", "whack", "🤡"),
+      g("diferente-circo", "Ache o Diferente do Circo", "🎪", "odd", "🎪"),
+      g("ordem-circo", "Balões em Ordem", "🎈", "order", "🎈"),
     ],
   },
   {
@@ -77,6 +83,9 @@ export const WORLDS: World[] = [
       g("corrida-carrinho", "Corrida de Carrinho", "🏎", "race", "🏎"),
       g("boliche-parque", "Boliche Maluco", "🎳", "bowling", "🎳"),
       g("conte-sorvetes", "Conte os Sorvetes", "🍦", "count", "🍦"),
+      g("toca-parque", "Toca-Toca do Parque", "🐿", "whack", "🐿"),
+      g("diferente-parque", "Ache o Sorvete Diferente", "🍦", "odd", "🍦"),
+      g("ordem-parque", "Rodas em Ordem", "🎡", "order", "🎡"),
     ],
   },
   {
@@ -95,6 +104,9 @@ export const WORLDS: World[] = [
       g("quebra-espaco", "Quebra-Cabeça Espacial", "🧩", "puzzle", "🪐"),
       g("melodia-espaco", "Sinais do Espaço", "🎼", "sequence", "🎼"),
       g("conte-planetas", "Conte os Planetas", "🪐", "count", "🪐"),
+      g("toca-espaco", "Toca-Toca Alienígena", "👽", "whack", "👽"),
+      g("diferente-espaco", "Ache o Planeta Diferente", "🪐", "odd", "🪐"),
+      g("ordem-espaco", "Foguetes em Ordem", "🚀", "order", "🚀"),
     ],
   },
   {
@@ -112,6 +124,9 @@ export const WORLDS: World[] = [
       g("quebra-mar", "Quebra-Cabeça do Mar", "🧩", "puzzle", "🐠"),
       g("conte-peixes", "Conte os Peixinhos", "🐠", "count", "🐠"),
       g("boliche-mar", "Boliche Submarino", "🎳", "bowling", "🎳"),
+      g("toca-aquario", "Toca-Toca do Polvo", "🐙", "whack", "🐙"),
+      g("diferente-aquario", "Ache o Peixe Diferente", "🐠", "odd", "🐠"),
+      g("ordem-aquario", "Peixes em Ordem", "🐟", "order", "🐟"),
     ],
   },
   {
@@ -129,6 +144,9 @@ export const WORLDS: World[] = [
       g("corrida-doce", "Corrida dos Doces", "🍭", "race", "🍭"),
       g("conte-doces", "Conte os Docinhos", "🍬", "count", "🍬"),
       g("quebra-doces", "Quebra-Cabeça Doce", "🧩", "puzzle", "🧁"),
+      g("toca-doces", "Toca-Toca dos Doces", "🍬", "whack", "🍬"),
+      g("diferente-doces", "Ache o Doce Diferente", "🍭", "odd", "🍭"),
+      g("ordem-doces", "Cupcakes em Ordem", "🧁", "order", "🧁"),
     ],
   },
   {
@@ -145,6 +163,11 @@ export const WORLDS: World[] = [
       g("folhas", "Pegue as Folhinhas", "🍃", "catch", "🍃"),
       g("corrida-dino", "Corrida do Dino", "🦖", "race", "🦖"),
       g("conte-ovos", "Conte os Ovinhos", "🥚", "count", "🥚"),
+      g("toca-dinos", "Toca-Toca do Dino", "🦖", "whack", "🦖"),
+      g("diferente-dinos", "Ache o Dino Diferente", "🦕", "odd", "🦕"),
+      g("ordem-dinos", "Dinos em Ordem", "🦕", "order", "🦕"),
+      g("boliche-dinos", "Boliche dos Ossos", "🎳", "bowling", "🎳"),
+      g("quebra-dinos", "Quebra-Cabeça Dino", "🧩", "puzzle", "🦖"),
     ],
   },
   {
@@ -162,6 +185,9 @@ export const WORLDS: World[] = [
       g("boliche-praia", "Boliche na Areia", "🎳", "bowling", "🎳"),
       g("corrida-praia", "Corrida na Praia", "🏄", "race", "🏄"),
       g("conte-conchas", "Conte as Conchas", "🐚", "count", "🐚"),
+      g("toca-praia", "Toca-Toca do Caranguejo", "🦀", "whack", "🦀"),
+      g("diferente-praia", "Ache a Concha Diferente", "🐚", "odd", "🐚"),
+      g("ordem-praia", "Castelos em Ordem", "🏖", "order", "🏖"),
     ],
   },
   {
@@ -176,6 +202,11 @@ export const WORLDS: World[] = [
       g("pintura", "Pintura Livre", "🖌", "paint", "🎨"),
       g("conte-cores", "Conte os Pincéis", "🖍", "count", "🖍"),
       g("quebra-arte", "Quebra-Cabeça da Arte", "🧩", "puzzle", "🎨"),
+      g("toca-atelie", "Toca-Toca das Tintas", "🎨", "whack", "🎨"),
+      g("diferente-atelie", "Ache a Cor Diferente", "🖍", "odd", "🖍"),
+      g("ordem-atelie", "Pincéis em Ordem", "🖌", "order", "🖌"),
+      g("melodia-atelie", "Siga as Cores", "🎼", "sequence", "🎼"),
+      g("baloes-tinta", "Estoure as Tintas", "🎈", "pop", "🎨"),
     ],
   },
   {
@@ -191,6 +222,11 @@ export const WORLDS: World[] = [
       g("instrumentos", "Memória Musical", "🥁", "memory", "🥁"),
       g("melodia", "Siga a Melodia", "🎼", "sequence", "🎼"),
       g("conte-notas", "Conte as Notinhas", "🎵", "count", "🎵"),
+      g("toca-teatro", "Toca-Toca dos Instrumentos", "🎺", "whack", "🎺"),
+      g("diferente-teatro", "Ache a Nota Diferente", "🎵", "odd", "🎵"),
+      g("ordem-teatro", "Notas em Ordem", "🎶", "order", "🎶"),
+      g("quebra-teatro", "Quebra-Cabeça Musical", "🧩", "puzzle", "🎵"),
+      g("pegue-notas", "Pegue as Notinhas", "🎼", "catch", "🎵"),
     ],
   },
   {
@@ -207,6 +243,9 @@ export const WORLDS: World[] = [
       g("bolotas", "Pegue as Bolotas", "🌰", "catch", "🌰"),
       g("quebra-bosque", "Quebra-Cabeça do Bosque", "🧩", "puzzle", "🍄"),
       g("conte-cogumelos", "Conte os Cogumelos", "🍄", "count", "🍄"),
+      g("toca-bosque", "Toca-Toca do Esquilo", "🐿", "whack", "🐿"),
+      g("diferente-bosque", "Ache o Cogumelo Diferente", "🍄", "odd", "🍄"),
+      g("ordem-bosque", "Árvores em Ordem", "🌳", "order", "🌳"),
     ],
   },
   {
@@ -223,6 +262,11 @@ export const WORLDS: World[] = [
       g("melodia-fogueira", "Melodia da Fogueira", "🎼", "sequence", "🎼"),
       g("conte-estrelas", "Conte as Estrelas", "⭐", "count", "⭐"),
       g("boliche-acampamento", "Boliche do Acampamento", "🎳", "bowling", "🎳"),
+      g("toca-acampamento", "Toca-Toca dos Vagalumes", "✨", "whack", "✨"),
+      g("diferente-acampamento", "Ache a Barraca Diferente", "⛺", "odd", "⛺"),
+      g("ordem-acampamento", "Fogueiras em Ordem", "🔥", "order", "🔥"),
+      g("quebra-acampamento", "Quebra-Cabeça da Trilha", "🧩", "puzzle", "🏕"),
+      g("memoria-acampamento", "Memória do Acampamento", "⛺", "memory", "⛺"),
     ],
   },
 ];

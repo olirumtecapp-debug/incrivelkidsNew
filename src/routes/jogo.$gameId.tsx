@@ -11,6 +11,9 @@ import { RaceGame } from "@/components/kids/RaceGame";
 import { BowlingGame } from "@/components/kids/BowlingGame";
 import { SequenceGame } from "@/components/kids/SequenceGame";
 import { CountGame } from "@/components/kids/CountGame";
+import { WhackGame } from "@/components/kids/WhackGame";
+import { OddOneGame } from "@/components/kids/OddOneGame";
+import { OrderGame } from "@/components/kids/OrderGame";
 import { findGame, STICKERS, type MiniGame, type World } from "@/lib/kids-data";
 import { useProgress } from "@/lib/progress";
 
@@ -97,6 +100,15 @@ function GamePage() {
         {game.kind === "bowling" && <BowlingGame sticker={sticker} onWin={onWin} />}
         {game.kind === "sequence" && <SequenceGame sticker={sticker} onWin={onWin} />}
         {game.kind === "count" && <CountGame emoji={game.theme} sticker={sticker} onWin={onWin} />}
+        {game.kind === "whack" && <WhackGame emoji={game.theme} sticker={sticker} onWin={onWin} />}
+        {game.kind === "odd" && (
+          <OddOneGame
+            pool={MEMORY_POOLS[world.id] ?? MEMORY_POOLS["default"]!}
+            sticker={sticker}
+            onWin={onWin}
+          />
+        )}
+        {game.kind === "order" && <OrderGame emoji={game.theme} sticker={sticker} onWin={onWin} />}
       </main>
     </div>
   );
