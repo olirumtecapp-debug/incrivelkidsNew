@@ -162,3 +162,13 @@
 @media (prefers-reduced-motion: reduce) {
   .anim-float, .anim-drift, .anim-rise, .anim-wiggle, .anim-sparkle { animation: none; }
 }
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px) rotate(-4deg); }
+  75% { transform: translateX(6px) rotate(4deg); }
+}
+
+.anim-shake {
+  animation: shake 0.4s ease-in-out;
+}
