@@ -2,6 +2,9 @@ import { Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { useProgress } from "@/lib/progress";
 import { playSound, setSoundEnabled } from "@/lib/sound";
+import { FullscreenButton } from "./FullscreenButton";
+import { InstallButton } from "./InstallButton";
+import { SupportButton } from "./SupportButton";
 
 export function TopBar({ back }: { back?: string }) {
   const { progress, toggleSound } = useProgress();
@@ -72,6 +75,9 @@ export function TopBar({ back }: { back?: string }) {
         >
           <span className="text-2xl">{progress.sound ? "🔊" : "🔇"}</span>
         </button>
+        <FullscreenButton />
+        <InstallButton />
+        <SupportButton />
       </div>
     </header>
   );

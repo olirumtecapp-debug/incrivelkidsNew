@@ -85,6 +85,25 @@ function Index() {
             </Link>
           ))}
         </div>
+
+        <section className="toy-card mt-8 flex flex-col items-center gap-3 p-5 text-center sm:flex-row sm:text-left">
+          <span className="text-5xl anim-float">📲</span>
+          <div className="flex-1">
+            <h2 className="font-display text-lg font-extrabold sm:text-xl">
+              Jogue no celular, no tablet e no computador!
+            </h2>
+            <p className="text-sm font-bold text-muted-foreground">
+              Dá para instalar como aplicativo no Android, iPhone, PC ou notebook — e jogar em tela
+              cheia, de graça e sem anúncios.
+            </p>
+          </div>
+          <Link
+            to="/instalar"
+            className="toy-card toy-press px-5 py-3 font-display font-extrabold hover:scale-105 active:scale-95"
+          >
+            📥 Instalar / Como jogar
+          </Link>
+        </section>
       </main>
 
       <MascotBubble />

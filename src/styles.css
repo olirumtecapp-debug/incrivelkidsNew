@@ -172,3 +172,13 @@
 .anim-shake {
   animation: shake 0.4s ease-in-out;
 }
+
+@keyframes pulse-heart {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+
+.anim-pulse-heart {
+  animation: pulse-heart 1.2s ease-in-out infinite;
+  display: inline-block;
+}
