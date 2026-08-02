@@ -17,7 +17,7 @@ export function FullscreenButton() {
       }}
       aria-label={isFullscreen ? "Sair da tela cheia" : "Jogar em tela cheia"}
       aria-pressed={isFullscreen}
-      className="toy-card toy-press flex items-center px-3 py-3 text-lg font-extrabold hover:scale-105 active:scale-95"
+      className="toy-card toy-press flex items-center px-3 py-2 text-base font-extrabold hover:scale-105 active:scale-95 sm:px-3 sm:py-3 sm:text-lg"
     >
       <span className="text-2xl">{isFullscreen ? "🡼" : "⛶"}</span>
     </button>
