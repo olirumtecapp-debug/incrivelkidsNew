@@ -1,3 +1,4 @@
+import { playSound } from "@/lib/sound";
 import { useEffect, useRef, useState } from "react";
 import { ScoreBar, WinScreen } from "./GameShell";
 
@@ -38,6 +39,7 @@ export function CatchGame({
       const next = value + 1;
       if (next >= TARGET) {
         setDone(true);
+        playSound("win");
         onWin(10);
       }
       return next;
@@ -59,7 +61,7 @@ export function CatchGame({
       {items.map((item) => (
         <button
           key={item.id}
-          onClick={() => catchItem(item.id)}
+          onClick={() => { playSound("pop"); catchItem(item.id); }}
           aria-label="Pegar"
           className="absolute -top-16 select-none text-5xl active:scale-125"
           style={{

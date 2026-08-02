@@ -1,3 +1,4 @@
+import { playSound } from "@/lib/sound";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ScoreBar, WinScreen } from "./GameShell";
 
@@ -50,6 +51,7 @@ export function PopGame({
       const next = value + 1;
       if (next >= TARGET) {
         setDone(true);
+        playSound("win");
         onWin(10);
       }
       return next;
@@ -71,7 +73,7 @@ export function PopGame({
       {bubbles.map((bubble) => (
         <button
           key={bubble.id}
-          onClick={() => pop(bubble.id)}
+          onClick={() => { playSound("pop"); pop(bubble.id); }}
           aria-label="Estourar"
           className={`absolute anim-pop select-none transition-transform duration-200 active:scale-125 ${
             bubble.popped ? "pointer-events-none scale-0 opacity-0" : "anim-float"
