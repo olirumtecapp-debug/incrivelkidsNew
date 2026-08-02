@@ -1,3 +1,4 @@
+import { playSound } from "@/lib/sound";
 import { useMemo, useState } from "react";
 import { ScoreBar, WinScreen } from "./GameShell";
 
@@ -42,6 +43,7 @@ export function MemoryGame({
       setFlipped([]);
       if (nextMatched.length === 6) {
         setDone(true);
+        playSound("win");
         onWin(12);
       }
       return;
@@ -72,7 +74,7 @@ export function MemoryGame({
           return (
             <button
               key={card.key}
-              onClick={() => flip(card)}
+              onClick={() => { playSound("click"); flip(card); }}
               aria-label={open ? card.emoji : "Carta virada"}
               className={`toy-card flex aspect-square items-center justify-center text-4xl transition-transform duration-200 active:scale-95 ${
                 open ? "anim-pop" : "hover:scale-105"

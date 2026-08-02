@@ -3,6 +3,7 @@ import { LivingSky } from "@/components/kids/LivingSky";
 import { TopBar } from "@/components/kids/TopBar";
 import { MascotBubble } from "@/components/kids/MascotBubble";
 import { WORLDS } from "@/lib/kids-data";
+import { currentEvent } from "@/lib/kids-extras";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,6 +25,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const event = currentEvent();
   return (
     <div className="relative min-h-screen overflow-hidden pb-28">
       <LivingSky />
@@ -36,6 +38,25 @@ function Index() {
         <p className="mt-2 text-center text-base text-muted-foreground sm:text-lg">
           Toque em um lugar para começar a brincar
         </p>
+
+        <div
+          className="toy-card anim-pop mt-6 flex items-center gap-3 p-4"
+          style={{
+            background: `linear-gradient(120deg, color-mix(in oklab, ${event.color} 32%, white), white)`,
+          }}
+        >
+          <span className="text-5xl anim-wiggle">{event.emoji}</span>
+          <div className="flex-1">
+            <p className="font-display text-lg font-extrabold sm:text-xl">{event.title}</p>
+            <p className="text-sm font-bold text-muted-foreground">{event.message}</p>
+          </div>
+          <Link
+            to="/missoes"
+            className="toy-card toy-press px-4 py-3 font-display font-extrabold hover:scale-105 active:scale-95"
+          >
+            🎯 <span className="hidden sm:inline">Missões</span>
+          </Link>
+        </div>
 
         <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {WORLDS.map((world, i) => (
