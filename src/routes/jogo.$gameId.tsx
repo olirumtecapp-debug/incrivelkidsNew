@@ -14,6 +14,9 @@ import { CountGame } from "@/components/kids/CountGame";
 import { WhackGame } from "@/components/kids/WhackGame";
 import { OddOneGame } from "@/components/kids/OddOneGame";
 import { OrderGame } from "@/components/kids/OrderGame";
+import { ColorGame } from "@/components/kids/ColorGame";
+import { ShapeGame } from "@/components/kids/ShapeGame";
+import { PairsGame } from "@/components/kids/PairsGame";
 import { findGame, STICKERS, type MiniGame, type World } from "@/lib/kids-data";
 import { useProgress } from "@/lib/progress";
 
@@ -109,6 +112,9 @@ function GamePage() {
           />
         )}
         {game.kind === "order" && <OrderGame emoji={game.theme} sticker={sticker} onWin={onWin} />}
+        {game.kind === "color" && <ColorGame sticker={sticker} onWin={onWin} />}
+        {game.kind === "shape" && <ShapeGame sticker={sticker} onWin={onWin} />}
+        {game.kind === "pairs" && <PairsGame sticker={sticker} onWin={onWin} />}
       </main>
     </div>
   );
