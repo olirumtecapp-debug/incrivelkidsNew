@@ -63,9 +63,12 @@ export function WhackGame({
           {Array.from({ length: HOLES }).map((_, index) => (
             <button
               key={index}
-              onClick={() => hit(index)}
+              onPointerDown={(e) => {
+                e.preventDefault();
+                hit(index);
+              }}
               aria-label="Buraco"
-              className="flex aspect-square items-center justify-center rounded-3xl bg-black/10 text-4xl transition active:scale-95 sm:text-5xl"
+              className="flex aspect-square items-center justify-center rounded-3xl bg-black/10 text-4xl transition active:scale-95 sm:text-5xl touch-none"
             >
               {active === index ? <span className="anim-pop">{emoji}</span> : null}
             </button>

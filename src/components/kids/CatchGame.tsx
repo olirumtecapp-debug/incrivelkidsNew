@@ -61,9 +61,13 @@ export function CatchGame({
       {items.map((item) => (
         <button
           key={item.id}
-          onClick={() => { playSound("pop"); catchItem(item.id); }}
+          onPointerDown={(e) => {
+            e.preventDefault();
+            playSound("pop");
+            catchItem(item.id);
+          }}
           aria-label="Pegar"
-          className="absolute -top-16 select-none text-5xl active:scale-125"
+          className="absolute -top-16 select-none text-6xl active:scale-125 touch-none"
           style={{
             left: `${item.x}%`,
             animation: `fall ${item.duration}s linear forwards`,
