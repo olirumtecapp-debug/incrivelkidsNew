@@ -1,4 +1,4 @@
-import { playSound } from "@/lib/sound";
+import { playInstrument, playSound } from "@/lib/sound";
 import { useMemo, useState } from "react";
 import { ScoreBar, WinScreen } from "./GameShell";
 
@@ -16,10 +16,12 @@ function buildDeck(pool: string[]): Card[] {
 export function MemoryGame({
   pool,
   sticker,
+  instruments = false,
   onWin,
 }: {
   pool: string[];
   sticker: string;
+  instruments?: boolean;
   onWin: (stars: number) => void;
 }) {
   const [round, setRound] = useState(0);
@@ -74,7 +76,11 @@ export function MemoryGame({
           return (
             <button
               key={card.key}
-              onClick={() => { playSound("click"); flip(card); }}
+              onClick={() => {
+                if (instruments) playInstrument(card.emoji, deck.indexOf(card) % 6);
+                else playSound("click");
+                flip(card);
+              }}
               aria-label={open ? card.emoji : "Carta virada"}
               className={`toy-card flex aspect-square items-center justify-center text-4xl transition-transform duration-200 active:scale-95 ${
                 open ? "anim-pop" : "hover:scale-105"

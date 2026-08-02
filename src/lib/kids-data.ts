@@ -1,4 +1,4 @@
-export type GameKind = "pop" | "memory" | "catch" | "paint" | "puzzle" | "race" | "bowling";
+export type GameKind = "pop" | "memory" | "catch" | "paint" | "puzzle" | "race" | "bowling" | "sequence" | "count";
 
 export type MiniGame = {
   id: string;
@@ -41,6 +41,8 @@ export const WORLDS: World[] = [
       g("unicornio", "Memória do Unicórnio", "🦄", "memory", "🦄"),
       g("estrelas", "Chuva de Estrelas", "⭐", "catch", "⭐"),
       g("quebra-castelo", "Quebra-Cabeça Real", "🧩", "puzzle", "👑"),
+      g("melodia-castelo", "Siga a Melodia Real", "🎼", "sequence", "🎼"),
+      g("conte-coroas", "Conte as Coroas", "👑", "count", "👑"),
     ],
   },
   {
@@ -56,6 +58,8 @@ export const WORLDS: World[] = [
       g("palhaco", "Memória do Circo", "🤡", "memory", "🎪"),
       g("pipoca", "Pegue a Pipoca", "🍿", "catch", "🍿"),
       g("boliche-circo", "Boliche do Circo", "🎳", "bowling", "🎳"),
+      g("quebra-circo", "Quebra-Cabeça do Circo", "🧩", "puzzle", "🎪"),
+      g("conte-baloes", "Conte os Balões", "🎈", "count", "🎈"),
     ],
   },
   {
@@ -72,6 +76,7 @@ export const WORLDS: World[] = [
       g("sorvete", "Pegue os Sorvetes", "🍦", "catch", "🍦"),
       g("corrida-carrinho", "Corrida de Carrinho", "🏎", "race", "🏎"),
       g("boliche-parque", "Boliche Maluco", "🎳", "bowling", "🎳"),
+      g("conte-sorvetes", "Conte os Sorvetes", "🍦", "count", "🍦"),
     ],
   },
   {
@@ -88,6 +93,8 @@ export const WORLDS: World[] = [
       g("meteoros", "Colete Cometas", "☄️", "catch", "☄️"),
       g("corrida-foguete", "Corrida Espacial", "🚀", "race", "🚀"),
       g("quebra-espaco", "Quebra-Cabeça Espacial", "🧩", "puzzle", "🪐"),
+      g("melodia-espaco", "Sinais do Espaço", "🎼", "sequence", "🎼"),
+      g("conte-planetas", "Conte os Planetas", "🪐", "count", "🪐"),
     ],
   },
   {
@@ -103,6 +110,8 @@ export const WORLDS: World[] = [
       g("conchas", "Memória do Mar", "🐚", "memory", "🐚"),
       g("bolhinhas", "Pegue as Bolhinhas", "🫧", "catch", "🫧"),
       g("quebra-mar", "Quebra-Cabeça do Mar", "🧩", "puzzle", "🐠"),
+      g("conte-peixes", "Conte os Peixinhos", "🐠", "count", "🐠"),
+      g("boliche-mar", "Boliche Submarino", "🎳", "bowling", "🎳"),
     ],
   },
   {
@@ -118,6 +127,8 @@ export const WORLDS: World[] = [
       g("cupcakes", "Memória dos Cupcakes", "🧁", "memory", "🧁"),
       g("frutas", "Pegue as Frutas", "🍓", "catch", "🍓"),
       g("corrida-doce", "Corrida dos Doces", "🍭", "race", "🍭"),
+      g("conte-doces", "Conte os Docinhos", "🍬", "count", "🍬"),
+      g("quebra-doces", "Quebra-Cabeça Doce", "🧩", "puzzle", "🧁"),
     ],
   },
   {
@@ -133,6 +144,7 @@ export const WORLDS: World[] = [
       g("dinos-mem", "Memória dos Dinos", "🦕", "memory", "🦕"),
       g("folhas", "Pegue as Folhinhas", "🍃", "catch", "🍃"),
       g("corrida-dino", "Corrida do Dino", "🦖", "race", "🦖"),
+      g("conte-ovos", "Conte os Ovinhos", "🥚", "count", "🥚"),
     ],
   },
   {
@@ -148,6 +160,8 @@ export const WORLDS: World[] = [
       g("praia-mem", "Memória da Praia", "🏝", "memory", "🏝"),
       g("cocos", "Pegue os Cocos", "🥥", "catch", "🥥"),
       g("boliche-praia", "Boliche na Areia", "🎳", "bowling", "🎳"),
+      g("corrida-praia", "Corrida na Praia", "🏄", "race", "🏄"),
+      g("conte-conchas", "Conte as Conchas", "🐚", "count", "🐚"),
     ],
   },
   {
@@ -158,7 +172,11 @@ export const WORLDS: World[] = [
     x: 26,
     y: 76,
     size: 1.05,
-    games: [g("pintura", "Pintura Livre", "🖌", "paint", "🎨")],
+    games: [
+      g("pintura", "Pintura Livre", "🖌", "paint", "🎨"),
+      g("conte-cores", "Conte os Pincéis", "🖍", "count", "🖍"),
+      g("quebra-arte", "Quebra-Cabeça da Arte", "🧩", "puzzle", "🎨"),
+    ],
   },
   {
     id: "teatro",
@@ -171,6 +189,8 @@ export const WORLDS: World[] = [
     games: [
       g("notas", "Toque nas Notinhas", "🎶", "pop", "🎵"),
       g("instrumentos", "Memória Musical", "🥁", "memory", "🥁"),
+      g("melodia", "Siga a Melodia", "🎼", "sequence", "🎼"),
+      g("conte-notas", "Conte as Notinhas", "🎵", "count", "🎵"),
     ],
   },
   {
@@ -186,6 +206,7 @@ export const WORLDS: World[] = [
       g("cogumelos", "Memória do Bosque", "🍄", "memory", "🍄"),
       g("bolotas", "Pegue as Bolotas", "🌰", "catch", "🌰"),
       g("quebra-bosque", "Quebra-Cabeça do Bosque", "🧩", "puzzle", "🍄"),
+      g("conte-cogumelos", "Conte os Cogumelos", "🍄", "count", "🍄"),
     ],
   },
   {
@@ -199,6 +220,9 @@ export const WORLDS: World[] = [
     games: [
       g("vagalumes", "Toque nos Vagalumes", "🪰", "pop", "✨"),
       g("marshmallow", "Pegue os Marshmallows", "🍡", "catch", "🍡"),
+      g("melodia-fogueira", "Melodia da Fogueira", "🎼", "sequence", "🎼"),
+      g("conte-estrelas", "Conte as Estrelas", "⭐", "count", "⭐"),
+      g("boliche-acampamento", "Boliche do Acampamento", "🎳", "bowling", "🎳"),
     ],
   },
 ];

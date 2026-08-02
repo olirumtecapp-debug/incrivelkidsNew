@@ -9,6 +9,8 @@ import { PaintGame } from "@/components/kids/PaintGame";
 import { PuzzleGame } from "@/components/kids/PuzzleGame";
 import { RaceGame } from "@/components/kids/RaceGame";
 import { BowlingGame } from "@/components/kids/BowlingGame";
+import { SequenceGame } from "@/components/kids/SequenceGame";
+import { CountGame } from "@/components/kids/CountGame";
 import { findGame, STICKERS, type MiniGame, type World } from "@/lib/kids-data";
 import { useProgress } from "@/lib/progress";
 
@@ -71,7 +73,12 @@ function GamePage() {
         </h1>
 
         {game.kind === "pop" && (
-          <PopGame emoji={game.theme} sticker={sticker} onWin={onWin} />
+          <PopGame
+            emoji={game.theme}
+            sticker={sticker}
+            music={world.id === "teatro"}
+            onWin={onWin}
+          />
         )}
         {game.kind === "catch" && (
           <CatchGame emoji={game.theme} sticker={sticker} onWin={onWin} />
@@ -80,6 +87,7 @@ function GamePage() {
           <MemoryGame
             pool={MEMORY_POOLS[world.id] ?? MEMORY_POOLS["default"]!}
             sticker={sticker}
+            instruments={world.id === "teatro"}
             onWin={onWin}
           />
         )}
@@ -87,6 +95,8 @@ function GamePage() {
         {game.kind === "puzzle" && <PuzzleGame theme={game.theme} sticker={sticker} onWin={onWin} />}
         {game.kind === "race" && <RaceGame theme={game.emoji} sticker={sticker} onWin={onWin} />}
         {game.kind === "bowling" && <BowlingGame sticker={sticker} onWin={onWin} />}
+        {game.kind === "sequence" && <SequenceGame sticker={sticker} onWin={onWin} />}
+        {game.kind === "count" && <CountGame emoji={game.theme} sticker={sticker} onWin={onWin} />}
       </main>
     </div>
   );
