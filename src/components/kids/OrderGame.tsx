@@ -77,7 +77,10 @@ export function OrderGame({
             return (
               <button
                 key={size}
-                onClick={() => pick(size)}
+                onPointerDown={(e) => {
+                  e.preventDefault();
+                  pick(size);
+                }}
                 disabled={cleared}
                 aria-label={`Tamanho ${size}`}
                 className={`transition active:scale-90 ${cleared ? "opacity-25" : "hover:scale-110"} ${

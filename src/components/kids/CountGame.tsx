@@ -77,7 +77,10 @@ export function CountGame({
           {data.options.map((option) => (
             <button
               key={option}
-              onClick={() => answer(option)}
+              onPointerDown={(e) => {
+                e.preventDefault();
+                answer(option);
+              }}
               className={`toy-card toy-press h-16 w-16 font-display text-3xl font-extrabold active:scale-95 sm:h-20 sm:w-20 sm:text-4xl ${
                 wrong === option ? "anim-wiggle ring-4 ring-destructive" : ""
               }`}

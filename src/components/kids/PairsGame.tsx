@@ -87,7 +87,10 @@ export function PairsGame({
           {data.options.map((option, index) => (
             <button
               key={`${option}-${index}`}
-              onClick={() => pick(index)}
+              onPointerDown={(e) => {
+                e.preventDefault();
+                pick(index);
+              }}
               aria-label="Resposta"
               className={`anim-pop rounded-3xl bg-white/60 p-3 text-4xl transition active:scale-90 sm:text-5xl ${
                 wrong === index ? "anim-shake opacity-60" : "hover:scale-110"

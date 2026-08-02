@@ -74,7 +74,10 @@ export function ShapeGame({
           {data.options.map((shape, index) => (
             <button
               key={shape.name}
-              onClick={() => pick(index)}
+              onPointerDown={(e) => {
+                e.preventDefault();
+                pick(index);
+              }}
               aria-label={shape.name}
               className={`anim-pop rounded-3xl bg-white/60 p-3 text-5xl transition active:scale-90 sm:text-6xl ${
                 wrong === index ? "anim-shake opacity-60" : "hover:scale-110"

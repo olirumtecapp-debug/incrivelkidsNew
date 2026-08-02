@@ -76,7 +76,8 @@ export function MemoryGame({
           return (
             <button
               key={card.key}
-              onClick={() => {
+              onPointerDown={(e) => {
+                e.preventDefault();
                 if (instruments) playInstrument(card.emoji, deck.indexOf(card) % 6);
                 else playSound("click");
                 flip(card);
