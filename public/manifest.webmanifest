@@ -1,0 +1,26 @@
+{
+  "name": "Incríveis Jogos Kids — Universo da Diversão",
+  "short_name": "Jogos Kids",
+  "description": "Dezenas de minijogos infantis grátis para celular, tablet e computador.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#bfe9ff",
+  "theme_color": "#7cd3f5",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
