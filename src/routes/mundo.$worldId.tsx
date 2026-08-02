@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { LivingSky } from "@/components/kids/LivingSky";
 import { TopBar } from "@/components/kids/TopBar";
-import { WORLDS } from "@/lib/kids-data";
+import { WORLDS, type MiniGame } from "@/lib/kids-data";
 
 export const Route = createFileRoute("/mundo/$worldId")({
   loader: ({ params }) => {
@@ -39,7 +39,7 @@ function WorldPage() {
         </div>
 
         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {world.games.map((game, i) => (
+          {(world.games as MiniGame[]).map((game, i) => (
             <Link
               key={game.id}
               to="/jogo/$gameId"
