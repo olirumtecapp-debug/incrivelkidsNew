@@ -6,6 +6,9 @@ import { PopGame } from "@/components/kids/PopGame";
 import { CatchGame } from "@/components/kids/CatchGame";
 import { MemoryGame } from "@/components/kids/MemoryGame";
 import { PaintGame } from "@/components/kids/PaintGame";
+import { PuzzleGame } from "@/components/kids/PuzzleGame";
+import { RaceGame } from "@/components/kids/RaceGame";
+import { BowlingGame } from "@/components/kids/BowlingGame";
 import { findGame, STICKERS, type MiniGame, type World } from "@/lib/kids-data";
 import { useProgress } from "@/lib/progress";
 
@@ -52,9 +55,9 @@ function GamePage() {
 
   const onWin = useCallback(
     (stars: number) => {
-      reward(game.id, stars, sticker);
+      reward(game.id, stars, sticker, world.id);
     },
-    [game.id, reward, sticker],
+    [game.id, reward, sticker, world.id],
   );
 
   return (
@@ -81,6 +84,9 @@ function GamePage() {
           />
         )}
         {game.kind === "paint" && <PaintGame onWin={onWin} />}
+        {game.kind === "puzzle" && <PuzzleGame theme={game.theme} sticker={sticker} onWin={onWin} />}
+        {game.kind === "race" && <RaceGame theme={game.emoji} sticker={sticker} onWin={onWin} />}
+        {game.kind === "bowling" && <BowlingGame sticker={sticker} onWin={onWin} />}
       </main>
     </div>
   );
